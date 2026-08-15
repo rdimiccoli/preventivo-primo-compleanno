@@ -20,278 +20,222 @@
 
 <style>
   :root{
-    --paper:#F7F2EA;
-    --paper-2:#EFE7DA;
-    --paper-3:#E7DDCC;
-    --ink:#2A2622;
-    --ink-soft:#6E6253;
-    --taupe:#B9A286;
-    --taupe-deep:#9C8568;
-    --line:#D9CEBD;
+    --carta:#F7F2EA;
+    --carta2:#EFE7DA;
+    --inchiostro:#2A2622;
+    --inchiostro-tenue:#6E6253;
+    --accento:#B9A286;
+    --accento-forte:#9C8568;
+    --linea:#D9CEBD;
+    --su-accento:#F7F2EA;
     --serif:'Cormorant Garamond', Georgia, serif;
-    --price:'Libre Caslon Display', Georgia, serif;
+    --prezzo:'Libre Caslon Display', Georgia, serif;
   }
 
   *{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;}
   body{
-    margin:0;
-    background:#E2D7C5;
-    color:var(--ink);
-    font-family:var(--serif);
-    font-size:18px;
-    line-height:1.72;
-    font-weight:400;
+    margin:0;background:#E2D7C5;color:var(--inchiostro);
+    font-family:var(--serif);font-size:18px;line-height:1.72;font-weight:400;
     -webkit-font-smoothing:antialiased;
   }
 
-  /* The document column — magazine-like, centred on desktop, full-width on phone */
   .doc{
-    max-width:680px;
-    margin:0 auto;
-    background:var(--paper);
-    box-shadow:0 24px 80px rgba(60,48,34,.28);
-    overflow:hidden;
-  }
-
-  .page{
-    position:relative;
-    padding:60px 40px;
-  }
-  .page + .page{
-    border-top:1px solid var(--line);
-  }
-
-  /* faint paper warmth */
-  .doc{
+    max-width:680px;margin:0 auto;background:var(--carta);
+    box-shadow:0 24px 80px rgba(60,48,34,.28);overflow:hidden;
     background-image:
-      radial-gradient(120% 80% at 50% 0%, rgba(255,252,246,.7), transparent 60%),
-      radial-gradient(90% 60% at 100% 100%, rgba(185,162,134,.10), transparent 55%);
+      radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.85), transparent 60%),
+      radial-gradient(90% 60% at 100% 100%, rgba(0,0,0,.03), transparent 55%);
   }
 
-  /* ---------- shared type ---------- */
-  .eyebrow{
-    font-size:.84rem;
-    letter-spacing:.34em;
-    text-transform:uppercase;
-    color:var(--taupe-deep);
-    font-weight:500;
-    margin:0 0 14px;
-  }
+  .page{position:relative;padding:60px 40px;}
+  .page + .page{border-top:1px solid var(--linea);}
+
+
+  .eyebrow{font-size:.84rem;letter-spacing:.34em;text-transform:uppercase;color:var(--accento-forte);font-weight:500;margin:0 0 14px;}
   h1,h2,h3{font-weight:400;margin:0;letter-spacing:.005em;}
-  h2.title{
-    font-size:clamp(2rem,8vw,2.8rem);
-    line-height:1.08;
-    margin:0 0 6px;
-  }
+  h2.title{font-size:clamp(2rem,8vw,2.8rem);line-height:1.08;margin:0 0 6px;}
   p{margin:0 0 1.05em;}
   p:last-child{margin-bottom:0;}
-  .muted{color:var(--ink-soft);}
+  .muted{color:var(--inchiostro-tenue);}
+  strong{font-weight:600;color:var(--accento-forte);}
 
-  /* tiny ornament */
-  .diamond{
-    display:flex;align-items:center;justify-content:center;
-    gap:16px;color:var(--taupe);margin:26px 0;
-  }
-  .diamond::before,.diamond::after{
-    content:"";height:1px;width:60px;background:var(--line);
-  }
+  .diamond{display:flex;align-items:center;justify-content:center;gap:16px;color:var(--accento);margin:26px 0;}
+  .diamond::before,.diamond::after{content:"";height:1px;width:60px;background:var(--linea);}
   .diamond span{font-size:.7rem;transform:translateY(-1px);}
 
-  /* ---------- seal / medallion (signature element) ---------- */
   .seal{
-    width:66px;height:66px;border-radius:50%;
-    background:var(--taupe);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--paper);
-    position:relative;
-    box-shadow:0 6px 18px rgba(156,133,104,.35);
-    flex:none;
+    width:66px;height:66px;border-radius:50%;background:var(--accento);
+    display:flex;align-items:center;justify-content:center;color:var(--carta);
+    position:relative;box-shadow:0 6px 18px rgba(0,0,0,.18);flex:none;
   }
-  .seal::after{
-    content:"";position:absolute;inset:5px;
-    border:1px solid rgba(247,242,234,.55);border-radius:50%;
-  }
-  .seal .n{font-family:var(--price);font-size:1.7rem;line-height:1;}
+  .seal::after{content:"";position:absolute;inset:5px;border:1px solid rgba(255,255,255,.55);border-radius:50%;}
+  .seal .n{font-family:var(--prezzo);font-size:1.7rem;line-height:1;}
   .seal .lbl{
     position:absolute;top:-9px;left:50%;transform:translateX(-50%);
     font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
-    background:var(--paper);color:var(--taupe-deep);
-    padding:2px 8px;border:1px solid var(--line);border-radius:20px;white-space:nowrap;
+    background:var(--carta);color:var(--accento-forte);
+    padding:2px 8px;border:1px solid var(--linea);border-radius:20px;white-space:nowrap;
   }
 
-  /* ---------- images ---------- */
   figure{margin:0;}
-  .photo{
-    width:100%;display:block;border-radius:4px;
-    box-shadow:0 14px 34px rgba(60,48,34,.22);
-  }
+  .photo{width:100%;display:block;border-radius:4px;box-shadow:0 14px 34px rgba(60,48,34,.22);}
 
-  /* ---------- COVER ---------- */
-  .cover{
-    padding:48px 40px 56px;
-    text-align:center;
-    background:
-      radial-gradient(100% 70% at 50% 12%, rgba(255,253,248,.85), transparent 62%),
-      var(--paper);
-  }
-  .brand{margin-bottom:34px;}
-  .brand .name{
-    font-size:1.5rem;letter-spacing:.36em;text-transform:uppercase;
-    font-weight:500;
-  }
-  .brand .sub{
-    font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--taupe-deep);margin-top:8px;
-  }
-  .cover figure{margin:8px 0 32px;}
-  .cover .photo{aspect-ratio:4/5;object-fit:cover;}
-  .cover .eyebrow{margin-bottom:10px;}
-  .cover h1{
-    font-family:var(--serif);
-    font-size:clamp(3.2rem,15vw,5rem);
-    line-height:.98;font-weight:300;margin:0 0 18px;
-  }
-  .cover .prepared{
-    font-size:.82rem;letter-spacing:.26em;text-transform:uppercase;
-    color:var(--ink-soft);
-  }
-  /* ---------- CTA ---------- */
+  /* copertina */
+  .cover{position:relative;text-align:center;background:var(--carta);}
+  .cover-pieno{padding:0;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;}
+  .cover-img-wrap{position:absolute;inset:0;}
+  .cover-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+  .cover-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,5,.22) 0%,rgba(8,7,5,.55) 60%,rgba(8,7,5,.82) 100%);}
+  .cover-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;padding:48px 40px 56px;}
+  .cover-pieno .cover-content *{color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.55), 0 1px 6px rgba(0,0,0,.4);}
+  .cover-figura{padding:48px 40px 56px;background:radial-gradient(100% 70% at 50% 12%, rgba(255,253,248,.85), transparent 62%), var(--carta);}
+  .cover-figura figure{margin:8px 0 32px;}
+  .cover-figura .photo{aspect-ratio:4/5;object-fit:cover;}
+  .brand .name{font-size:1.5rem;letter-spacing:.36em;text-transform:uppercase;font-weight:500;}
+  .brand .sub{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--accento-forte);margin-top:8px;}
+  .cover-pieno .brand{margin-bottom:auto;padding-top:48px;}
+  .cover-figura .brand{margin-bottom:34px;}
+  .cover h1{font-family:var(--serif);font-size:clamp(2.8rem,12vw,4.6rem);line-height:1;font-weight:300;margin:0 0 18px;}
+  .cover .prepared{font-size:.82rem;letter-spacing:.26em;text-transform:uppercase;color:var(--inchiostro-tenue);}
+  .per-cliente{display:none;font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;margin:0 0 14px;}
+  .per-cliente.attivo{display:block;}
+  .per-cliente .nome{display:block;font-family:var(--prezzo);font-size:1.5rem;letter-spacing:.04em;text-transform:none;margin-top:4px;}
+
+  /* pulsanti */
   .cta-small{
-    display:inline-block;margin-top:32px;padding:11px 28px;
-    border:1px solid var(--taupe);color:var(--taupe-deep);text-decoration:none;
-    letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;
-    font-family:var(--serif);transition:background .2s,color .2s;
+    display:inline-block;margin-top:32px;padding:11px 28px;border:1px solid var(--accento);
+    color:var(--accento-forte);text-decoration:none;letter-spacing:.22em;text-transform:uppercase;
+    font-size:.78rem;font-family:var(--serif);transition:background .2s,color .2s;
   }
-  .cta-small:hover{background:var(--taupe);color:var(--paper);}
-  .cta-big-wrap{padding:56px 40px;text-align:center;border-top:1px solid var(--line);background:var(--taupe-deep);}
+  .cta-small:hover{background:var(--accento);color:var(--su-accento);}
+  .cta-big-wrap{padding:56px 40px;text-align:center;border-top:1px solid var(--linea);background:var(--accento-forte);}
   .cta-big-wrap .sub{font-size:1.05rem;color:#F6EFE4;margin-bottom:26px;max-width:38ch;margin-left:auto;margin-right:auto;}
   .cta-big{
-    display:inline-block;padding:18px 48px;background:var(--paper);color:var(--taupe-deep);
+    display:inline-block;padding:18px 48px;background:var(--carta);color:var(--accento-forte);
     text-decoration:none;letter-spacing:.28em;text-transform:uppercase;font-size:1rem;
     font-family:var(--serif);font-weight:600;transition:filter .2s;
   }
   .cta-big:hover{filter:brightness(.94);}
+  .btn-portfolio{
+    display:inline-block;margin-top:8px;padding:16px 36px;border:1px solid var(--accento);
+    color:var(--accento-forte);text-decoration:none;letter-spacing:.22em;text-transform:uppercase;
+    font-size:.85rem;transition:background .25s,color .25s;
+  }
+  .btn-portfolio:hover{background:var(--accento);color:var(--su-accento);}
 
-  /* ---------- COMPARISON ---------- */
-  .compare{text-align:center;}
-  .compare .intro{max-width:46ch;margin:0 auto;color:var(--ink-soft);}
-  .cards{
-    display:grid;grid-template-columns:1fr;gap:18px;margin-top:32px;text-align:center;
-  }
-  .card{
-    border:1px solid var(--line);border-radius:6px;background:var(--paper-2);
-    padding:30px 24px;position:relative;
-  }
-  .card.feature{border-color:var(--taupe);background:#F3EBDD;}
-  .card .flag{
-    position:absolute;top:-12px;left:50%;transform:translateX(-50%);
-    background:var(--taupe);color:var(--paper);
-    font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
-    padding:5px 14px;border-radius:20px;white-space:nowrap;
-  }
-  .card .k{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe-deep);}
-  .card h3{font-size:1.7rem;line-height:1.1;margin:8px 0 14px;}
-  .card .amount{font-family:var(--price);font-size:clamp(2.6rem,13vw,3rem);line-height:1;margin-bottom:18px;}
-  .card ul{list-style:none;margin:0;padding:0;}
-  .card li{
-    font-size:1rem;color:var(--ink);padding:9px 0;border-top:1px solid var(--line);
-  }
-  .card li:first-child{border-top:0;}
-  .note{
-    margin-top:30px;border:1px solid var(--line);border-radius:6px;
-    background:var(--paper-2);padding:20px 24px;text-align:center;
-    font-size:1.02rem;color:var(--ink-soft);
-  }
-  .note strong{color:var(--ink);font-weight:500;}
-
-  /* ---------- SOLUTION PAGES ---------- */
+  /* soluzioni */
   .sol .top{display:flex;align-items:center;gap:18px;margin-bottom:26px;}
   .sol .top .heads{flex:1;}
   .sol .top .eyebrow{margin-bottom:6px;}
   .sol figure{margin:0 0 28px;}
   .sol .photo{aspect-ratio:3/2;object-fit:cover;}
   .sol .body{font-size:1.06rem;}
-  .priceline{
-    display:flex;justify-content:space-between;align-items:flex-end;gap:20px;
-    margin-top:38px;padding-top:24px;border-top:1px solid var(--line);
-  }
-  .priceline .lab{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe-deep);}
-  .priceline .lab small{display:block;text-transform:none;letter-spacing:.02em;font-size:.92rem;color:var(--ink-soft);margin-top:6px;}
-  .priceline .big{
-    font-family:var(--price);font-size:clamp(3rem,15vw,4rem);line-height:.9;white-space:nowrap;
-  }
+  .priceline{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-top:38px;padding-top:24px;border-top:1px solid var(--linea);}
+  .priceline .lab{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accento-forte);}
+  .priceline .lab small{display:block;text-transform:none;letter-spacing:.02em;font-size:.92rem;color:var(--inchiostro-tenue);margin-top:6px;}
+  .priceline .big{font-family:var(--prezzo);font-size:clamp(3rem,15vw,4rem);line-height:.9;white-space:nowrap;color:var(--accento-forte);}
 
-  /* ---------- FULL-BLEED DIVIDER ---------- */
-  .interlude{
-    position:relative;padding:0;border-top:0;
-  }
-  .interlude img{
-    width:100%;height:clamp(300px,62vw,440px);object-fit:cover;display:block;
-  }
+  /* divisori */
+  .interlude{position:relative;padding:0;border-top:0;}
+  .interlude img{width:100%;height:clamp(300px,62vw,440px);object-fit:cover;display:block;}
   .interlude .veil{
-    position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(42,38,34,.18), rgba(42,38,34,.42));
+    position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,16,10,.42), rgba(20,16,10,.66));
     display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;color:#FBF6EE;padding:30px;
+    text-align:center;color:#fff;padding:30px;
   }
-  .interlude .veil .q{
-    font-style:italic;font-size:clamp(1.5rem,6vw,2.1rem);line-height:1.35;
-    max-width:22ch;text-shadow:0 1px 14px rgba(0,0,0,.35);font-weight:400;
-  }
-  .interlude .veil .sig{
-    margin-top:20px;font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;opacity:.92;
-  }
+  .interlude .veil .q{font-style:italic;font-size:clamp(1.5rem,6vw,2.1rem);line-height:1.35;max-width:24ch;text-shadow:0 1px 14px rgba(0,0,0,.4);}
+  .interlude .veil .sig{margin-top:20px;font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;opacity:.95;}
 
-  /* ---------- INFO ---------- */
+  /* informazioni */
+  
   .info .block{margin-bottom:30px;}
   .info .block:last-of-type{margin-bottom:0;}
   .info h3{font-size:1.5rem;margin-bottom:6px;display:flex;align-items:baseline;gap:12px;}
-  .info h3::before{content:"";width:7px;height:7px;background:var(--taupe);border-radius:50%;transform:translateY(-3px);flex:none;}
-  .info .block p{font-size:1.04rem;color:var(--ink-soft);}
-  .info .sep{height:1px;background:var(--line);margin:30px 0;border:0;}
+  .info h3::before{content:"";width:7px;height:7px;background:var(--accento);border-radius:50%;transform:translateY(-3px);flex:none;}
+  .info .block p{font-size:1.04rem;color:var(--inchiostro-tenue);}
+  .info .sep{height:1px;background:var(--linea);margin:30px 0;border:0;}
 
-  /* ---------- EXTRA ---------- */
+  /* extra */
   .extra .row{
     display:flex;gap:20px;align-items:center;justify-content:space-between;
-    border:1px solid var(--line);border-radius:6px;background:var(--paper-2);
+    border:1px solid var(--linea);border-radius:6px;background:var(--carta2);
     padding:22px 24px;margin-bottom:16px;
   }
   .extra .row .txt h3{font-size:1.4rem;margin-bottom:4px;}
-  .extra .row .txt p{font-size:.98rem;color:var(--ink-soft);margin:0;}
-  .extra .row .amt{font-family:var(--price);font-size:clamp(2.1rem,9vw,2.6rem);line-height:1;white-space:nowrap;flex:none;}
+  .extra .row .txt p{font-size:.98rem;color:var(--inchiostro-tenue);margin:0;}
+  .extra .row .txt ul{margin:10px 0 0;padding-left:18px;font-size:.98rem;color:var(--inchiostro-tenue);line-height:2;}
+  .extra .row .amt{font-family:var(--prezzo);font-size:clamp(2.1rem,9vw,2.6rem);line-height:1;white-space:nowrap;flex:none;color:var(--accento-forte);}
 
-  /* ---------- THANKS ---------- */
+  /* configuratore */
+  .config .intro{max-width:46ch;margin:0 auto;color:var(--inchiostro-tenue);text-align:center;}
+  .cfg-gruppo{margin-top:26px;}
+  .cfg-gruppo > h3{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accento-forte);margin-bottom:12px;}
+  .cfg-voce{
+    display:flex;align-items:flex-start;gap:14px;cursor:pointer;
+    border:1px solid var(--linea);border-radius:6px;background:var(--carta2);
+    padding:16px 18px;margin-bottom:10px;transition:border-color .15s,background .15s;
+  }
+  .cfg-voce:hover{border-color:var(--accento);}
+  .cfg-voce.scelta{border-color:var(--accento);background:#F3EBDD;}
+  .cfg-voce input{margin:6px 0 0;accent-color:var(--accento-forte);flex:none;width:18px;height:18px;}
+  .cfg-voce .et{flex:1;line-height:1.4;}
+  .cfg-voce .et small{display:block;color:var(--inchiostro-tenue);font-size:.92rem;margin-top:2px;}
+  .cfg-voce .pz{font-family:var(--prezzo);font-size:1.35rem;white-space:nowrap;color:var(--accento-forte);}
+  .cfg-totale{
+    display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+    margin-top:26px;padding-top:22px;border-top:1px solid var(--linea);
+  }
+  .cfg-totale .et{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accento-forte);}
+  .cfg-totale .somma{font-family:var(--prezzo);font-size:clamp(2.6rem,12vw,3.4rem);line-height:1;color:var(--accento-forte);}
+  .cfg-nota{font-size:.92rem;color:var(--inchiostro-tenue);margin-top:10px;text-align:right;}
+  .cfg-azioni{text-align:center;}
+
+  /* confronto */
+  .compare{text-align:center;}
+  .compare .intro{max-width:46ch;margin:0 auto;color:var(--inchiostro-tenue);}
+  .cards{display:grid;grid-template-columns:1fr;gap:18px;margin-top:32px;text-align:center;}
+  .card{border:1px solid var(--linea);border-radius:6px;background:var(--carta2);padding:30px 24px;position:relative;}
+  .card.feature{border-color:var(--accento);background:#F3EBDD;}
+  .card .flag{
+    position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accento);
+    color:var(--carta);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+    padding:5px 14px;border-radius:20px;white-space:nowrap;
+  }
+  .card .k{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accento-forte);}
+  .card h3{font-size:1.6rem;line-height:1.1;margin:8px 0 14px;}
+  .card .amount{font-family:var(--prezzo);font-size:clamp(2.4rem,12vw,2.9rem);line-height:1;margin-bottom:18px;color:var(--accento-forte);}
+  .card ul{list-style:none;margin:0;padding:0;}
+  .card li{font-size:1rem;color:var(--inchiostro);padding:9px 0;border-top:1px solid var(--linea);}
+  .card li:first-child{border-top:0;}
+  .note{margin-top:30px;border:1px solid var(--linea);border-radius:6px;background:var(--carta2);padding:20px 24px;text-align:center;font-size:1.02rem;color:var(--inchiostro-tenue);}
+
+  /* chiusura */
   .thanks{position:relative;text-align:center;padding:70px 40px 80px;}
   .thanks h2{font-size:clamp(2.6rem,12vw,3.4rem);font-weight:300;margin-bottom:18px;}
-  .thanks .msg{max-width:34ch;margin:0 auto;color:var(--ink-soft);font-size:1.08rem;}
+  .thanks .msg{max-width:34ch;margin:0 auto;color:var(--inchiostro-tenue);font-size:1.08rem;}
   .thanks .contact{margin-top:38px;}
-  .thanks .contact .name{font-size:1.4rem;letter-spacing:.3em;text-transform:uppercase;font-weight:500;margin-bottom:16px;}
-  .thanks .contact a, .thanks .contact div{
-    display:block;color:var(--ink);text-decoration:none;
-    letter-spacing:.14em;font-size:1.02rem;line-height:2;
-  }
-
-  /* botanical watermark */
-  .sprig{position:absolute;width:120px;opacity:.16;color:var(--taupe-deep);pointer-events:none;}
+  .thanks .contact .name{font-size:1.4rem;letter-spacing:.3em;text-transform:uppercase;font-weight:500;margin-bottom:16px;color:var(--accento-forte);}
+  .thanks .contact a, .thanks .contact div{display:block;color:var(--inchiostro);text-decoration:none;letter-spacing:.14em;font-size:1.02rem;line-height:2;}
+  .sprig{position:absolute;width:120px;opacity:.16;color:var(--accento-forte);pointer-events:none;}
   .sprig.tr{top:24px;right:22px;}
   .sprig.bl{bottom:24px;left:22px;transform:scaleX(-1) rotate(8deg);}
 
+  .scaduto{display:none;background:#8A2F2F;color:#fff;text-align:center;padding:14px 20px;font-size:.95rem;letter-spacing:.04em;}
+  .scaduto.attivo{display:block;}
 
   @media (min-width:560px){
-    .cards{grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:stretch;}
+    .cards{grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch;}
     .card{display:flex;flex-direction:column;}
     .card ul{margin-top:auto;}
   }
 
-  /* ---------- PRINT (Save as PDF → clean A4 pages) ---------- */
   @media print{
     @page{size:A4;margin:0;}
     body{background:#fff;}
     .doc{max-width:none;box-shadow:none;}
-    .page,.cover,.interlude,.thanks,.cta-big-wrap{
-      page-break-after:always;break-after:page;
-    }
+    .config,.scaduto{display:none;}
+    .page,.cover,.interlude,.thanks,.cta-big-wrap{page-break-after:always;break-after:page;}
     .thanks{page-break-after:auto;}
     *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   }
@@ -299,10 +243,11 @@
 </head>
 <body>
 
+<div class="scaduto" id="avvisoScaduto"></div>
+
 <div class="doc">
 
-  <!-- 1 · COVER -->
-  <section class="cover page" style="border-top:0;">
+  <section class="cover cover-figura page">
     <svg class="sprig tr" viewBox="0 0 100 160" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
       <path d="M50 158 C50 120 50 70 50 20"/>
       <path d="M50 120 C30 112 18 96 16 78 C36 82 48 98 50 116"/>
@@ -311,21 +256,18 @@
       <path d="M50 44 C68 38 78 24 80 10 C62 14 52 28 50 40"/>
     </svg>
     <div class="brand">
-      <div class="name">Ruggiero Dimiccoli</div>
-      <div class="sub">Fotografia di eventi</div>
-    </div>
+        <div class="name">Ruggiero Dimiccoli</div>
+        <div class="sub">Fotografia di eventi</div>
+      </div>
     <figure>
-      <!-- ① COPERTINA — verticale (orientamento ritratto consigliato, es. 1200×1500px) -->
-      <img class="photo" loading="eager" fetchpriority="high" decoding="async" alt="Copertina primo compleanno"
-        src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1200&q=80">
+      <img class="photo" loading="eager" fetchpriority="high" decoding="async" alt="Copertina primo compleanno" src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1200&q=80">
     </figure>
-    <p class="eyebrow">Preventivo · Servizio fotografico</p>
-    <h1>Primo<br>Compleanno</h1>
-    <p class="prepared" style="margin-top:14px;">Valido <strong>30 giorni</strong> dalla data di invio · 2026</p>
+    <p class="per-cliente" id="perCliente">Preventivo preparato per<span class="nome"></span></p>
+      <p class="eyebrow">Preventivo · Servizio fotografico</p>
+      <h1>Primo<br>Compleanno</h1>
+      <p class="prepared" style="margin-top:14px;"><span id="validita">Valido <strong>30 giorni</strong> dalla data di invio · 2026</span></p>
   </section>
 
-  
-  <!-- 3 · SOLUZIONE 1 -->
   <section class="sol page">
     <div class="top">
       <div class="seal"><span class="lbl">Soluzione</span><span class="n">1</span></div>
@@ -335,10 +277,7 @@
       </div>
     </div>
     <figure>
-      <!-- ② SOLUZIONE 1 — orizzontale (es. 1200×800px) — atmosfera festa, bokeh, senza volti -->
-      <img class="photo" loading="lazy" decoding="async" alt="Atmosfera della festa, bokeh e luce calda"
-        src="https://pub-822ee98e2b2545f886fdcc8a4083cde6.r2.dev/primo-compleanno/(198).jpg">
-      
+      <img class="photo" loading="lazy" decoding="async" alt="Atmosfera della festa, bokeh e luce calda" src="https://pub-822ee98e2b2545f886fdcc8a4083cde6.r2.dev/primo-compleanno/(198).jpg">
     </figure>
     <div class="body">
       <p>Il servizio copre <strong>l’intera festa</strong> fino al momento in cui sarà ritenuto di aver raccolto tutto il materiale necessario a rappresentare in modo completo e coerente l’evento.</p>
@@ -350,22 +289,18 @@
       <div class="big">€&nbsp;240</div>
     </div>
     <div style="text-align:center;">
-      <a class="cta-small" href="https://booking-fotografo.vercel.app" target="_blank" rel="noopener">Prenota</a>
+      <a class="cta-small" data-cta="soluzione-1" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno" target="_blank" rel="noopener">Prenota</a>
     </div>
   </section>
 
-  <!-- DIVIDER 1 -->
   <section class="interlude">
-    <!-- ③ DIVISORE 1 — panoramica/orizzontale (es. 1500×900px) — scena festa o dettaglio emozionale -->
-    <img loading="lazy" decoding="async" alt="Candele e luce calda"
-      src="https://images.unsplash.com/photo-1610670444950-0b29430891b4?auto=format&fit=crop&w=1500&q=80">
+    <img loading="lazy" decoding="async" alt="Candele e luce calda" src="https://images.unsplash.com/photo-1610670444950-0b29430891b4?auto=format&fit=crop&w=1500&q=80">
     <div class="veil">
       <div class="q">«Un anno intero, raccontato in poche immagini che resteranno per sempre.»</div>
       <div class="sig">Ruggiero Dimiccoli · Fotografia</div>
     </div>
   </section>
 
-  <!-- 5 · SOLUZIONE 2 -->
   <section class="sol page">
     <div class="top">
       <div class="seal"><span class="lbl">Soluzione</span><span class="n">2</span></div>
@@ -375,11 +310,7 @@
       </div>
     </div>
     <figure>
-      <!-- ④ SOLUZIONE 2 — orizzontale (es. 1200×800px) — sessione a casa, luce dalla finestra, senza volti -->
-      <img class="photo" loading="lazy" decoding="async" alt="Ritratto a casa, luce naturale dalla finestra"
-        src="https://pub-822ee98e2b2545f886fdcc8a4083cde6.r2.dev/primo-compleanno/pexels-nikitaxnikitin-14774935.jpg">
-      
-     
+      <img class="photo" loading="lazy" decoding="async" alt="Ritratto a casa, luce naturale dalla finestra" src="https://pub-822ee98e2b2545f886fdcc8a4083cde6.r2.dev/primo-compleanno/pexels-nikitaxnikitin-14774935.jpg">
     </figure>
     <div class="body">
       <p>Il servizio prevede <strong>scatti a casa</strong> al/alla bambino/a insieme ai genitori ed eventuali fratelli, direttamente presso l’abitazione.</p>
@@ -392,22 +323,18 @@
       <div class="big">€&nbsp;210</div>
     </div>
     <div style="text-align:center;">
-      <a class="cta-small" href="https://booking-fotografo.vercel.app" target="_blank" rel="noopener">Prenota</a>
+      <a class="cta-small" data-cta="soluzione-2" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno" target="_blank" rel="noopener">Prenota</a>
     </div>
   </section>
 
-  <!-- DIVIDER 2 -->
   <section class="interlude">
-    <!-- ⑤ DIVISORE 2 — panoramica/orizzontale (es. 1500×900px) — bokeh, luci della festa, senza volti -->
-    <img loading="lazy" decoding="async" alt="Bokeh dorato, atmosfera della festa"
-      src="https://images.unsplash.com/photo-1519750783826-e2420f4d687f?auto=format&fit=crop&w=1500&q=80">
+    <img loading="lazy" decoding="async" alt="Bokeh dorato, atmosfera della festa" src="https://images.unsplash.com/photo-1519750783826-e2420f4d687f?auto=format&fit=crop&w=1500&q=80">
     <div class="veil">
       <div class="q">«La luce, i dettagli, gli sguardi: la festa nella sua atmosfera più vera.»</div>
       <div class="sig">Primo compleanno · Reportage</div>
     </div>
   </section>
 
-  <!-- 7 · SOLUZIONE 3 -->
   <section class="sol page">
     <div class="top">
       <div class="seal"><span class="lbl">Soluzione</span><span class="n">3</span></div>
@@ -417,10 +344,7 @@
       </div>
     </div>
     <figure>
-      <!-- ⑥ SOLUZIONE 3 — orizzontale (es. 1200×800px) — torta con candelina, dettaglio, senza volti -->
-      <img class="photo" loading="lazy" decoding="async" alt="Primo piano della torta con candelina"
-        src="https://images.unsplash.com/photo-1577998474517-7eeeed4e448a?auto=format&fit=crop&w=1200&q=80">
-   
+      <img class="photo" loading="lazy" decoding="async" alt="Primo piano della torta con candelina" src="https://images.unsplash.com/photo-1577998474517-7eeeed4e448a?auto=format&fit=crop&w=1200&q=80">
     </figure>
     <div class="body">
       <p>Il servizio prevede una <strong>sessione dedicata al/alla piccolo/a</strong> prima dell’arrivo degli invitati, con i genitori ed eventuali fratelli, seguita dai soli scatti del <strong>momento torta</strong>.</p>
@@ -432,11 +356,10 @@
       <div class="big">€&nbsp;170</div>
     </div>
     <div style="text-align:center;">
-      <a class="cta-small" href="https://booking-fotografo.vercel.app" target="_blank" rel="noopener">Prenota</a>
+      <a class="cta-small" data-cta="soluzione-3" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno" target="_blank" rel="noopener">Prenota</a>
     </div>
   </section>
 
-  <!-- 8 · INFORMAZIONI -->
   <section class="info page">
     <p class="eyebrow" style="text-align:center;">Informazioni</p>
     <h2 class="title" style="text-align:center;">Ulteriori dettagli</h2>
@@ -466,15 +389,10 @@
     </div>
 
     <figure style="margin-top:34px;">
-      <!-- ⑦ INFORMAZIONI — panoramica larga (es. 1200×525px) — still life, stampe, dettagli materici -->
-      <img class="photo" loading="lazy" decoding="async" alt="Still life fine-art"
-        src="https://images.unsplash.com/photo-1651913311362-df86277ac4dc?auto=format&fit=crop&w=1200&q=80"
-        style="aspect-ratio:16/7;object-fit:cover;">
-    
+      <img class="photo" loading="lazy" decoding="async" alt="Still life fine-art" src="https://images.unsplash.com/photo-1651913311362-df86277ac4dc?auto=format&fit=crop&w=1200&q=80" style="aspect-ratio:16/7;object-fit:cover;">
     </figure>
   </section>
 
-  <!-- 9 · EXTRA -->
   <section class="extra page">
     <p class="eyebrow" style="text-align:center;">Su richiesta</p>
     <h2 class="title" style="text-align:center;">Extra</h2>
@@ -488,7 +406,6 @@
       </div>
       <div class="amt">€&nbsp;180</div>
     </div>
-
     <div class="row">
       <div class="txt">
         <h3>Polaroid aggiuntive</h3>
@@ -496,7 +413,6 @@
       </div>
       <div class="amt">€&nbsp;160</div>
     </div>
-
     <div class="row">
       <div class="txt">
         <h3>Polaroid del solo momento torta</h3>
@@ -504,20 +420,73 @@
       </div>
       <div class="amt">€&nbsp;80</div>
     </div>
-
     <div class="row">
-  <div class="txt">
-    <h3>Cartoncino ricordo con foto famiglia</h3>
-    <p>Cartoncino con la foto di famiglia scattata durante la festa. Disponibile in due formati:</p>
-    <ul style="margin:10px 0 0;padding-left:18px;font-size:.98rem;color:var(--ink-soft);line-height:2;">
-      <li><strong>Formato 15×22 cm</strong> — € 2,00 cad. (consegna differita) · € 3,00 cad. in sala <em style="font-size:.85rem;">(+€ 50 supplemento stampa istantanea)</em></li>
-      <li><strong>Formato 10×15 cm</strong> — € 1,50 cad. (consegna differita) · € 2,00 cad. in sala <em style="font-size:.85rem;">(+€ 40 supplemento stampa istantanea)</em></li>
-    </ul>
+      <div class="txt">
+        <h3>Cartoncino ricordo con foto famiglia</h3>
+        <p>Cartoncino con la foto di famiglia scattata durante la festa. Disponibile in due formati:</p>
+        <ul>
+          <li><strong>Formato 15×22 cm</strong> — € 2,00 cad. (consegna differita) · € 3,00 cad. in sala <em style="font-size:.85rem;">(+€ 50 supplemento stampa istantanea)</em></li>
+          <li><strong>Formato 10×15 cm</strong> — € 1,50 cad. (consegna differita) · € 2,00 cad. in sala <em style="font-size:.85rem;">(+€ 40 supplemento stampa istantanea)</em></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- CONFRONTO -->
+  <section class="config page" id="configuratore">
+    <p class="eyebrow" style="text-align:center;">Su misura</p>
+    <h2 class="title" style="text-align:center;">Componi il tuo servizio</h2>
+    <p class="intro">Scegli la soluzione e gli extra che ti interessano: il totale si aggiorna mentre selezioni.</p>
+    <div class="diamond"><span>◆</span></div>
+
+    <div class="cfg-gruppo">
+      <h3>La soluzione</h3>
+      <label class="cfg-voce">
+        <input type="radio" name="soluzione" value="1" data-prezzo="240" data-nome="Servizio fotografico dell’intera festa">
+        <span class="et">Soluzione 1<small>Reportage completo</small></span>
+        <span class="pz">€&nbsp;240</span>
+      </label>
+      <label class="cfg-voce">
+        <input type="radio" name="soluzione" value="2" data-prezzo="210" data-nome="Servizio fotografico a casa prima della festa">
+        <span class="et">Soluzione 2<small>Sessione a casa</small></span>
+        <span class="pz">€&nbsp;210</span>
+      </label>
+      <label class="cfg-voce">
+        <input type="radio" name="soluzione" value="3" data-prezzo="170" data-nome="Servizio fotografico del solo momento torta">
+        <span class="et">Soluzione 3<small>Solo momento torta</small></span>
+        <span class="pz">€&nbsp;170</span>
+      </label>
+    </div>
+
+    <div class="cfg-gruppo">
+      <h3>Gli extra</h3>
+      <label class="cfg-voce">
+        <input type="checkbox" name="extra" value="0" data-prezzo="180" data-nome="Fotolibro aggiuntivo">
+        <span class="et">Fotolibro aggiuntivo</span>
+        <span class="pz">+ €&nbsp;180</span>
+      </label>
+      <label class="cfg-voce">
+        <input type="checkbox" name="extra" value="1" data-prezzo="160" data-nome="Polaroid aggiuntive">
+        <span class="et">Polaroid aggiuntive</span>
+        <span class="pz">+ €&nbsp;160</span>
+      </label>
+      <label class="cfg-voce">
+        <input type="checkbox" name="extra" value="2" data-prezzo="80" data-nome="Polaroid del solo momento torta">
+        <span class="et">Polaroid del solo momento torta</span>
+        <span class="pz">+ €&nbsp;80</span>
+      </label>
+    </div>
+
+    <div class="cfg-totale">
+      <div class="et">Totale</div>
+      <div class="somma" id="cfgTotale">€&nbsp;0</div>
+    </div>
+    <p class="cfg-nota" id="cfgNota">Seleziona una soluzione per iniziare.</p>
+
+    <div class="cfg-azioni">
+      <a class="cta-small" id="cfgInvia" data-cta="configuratore" href="#" target="_blank" rel="noopener">Richiedi questa combinazione</a>
+    </div>
+  </section>
+
   <section class="compare page">
     <p class="eyebrow" style="text-align:center;">Tre soluzioni</p>
     <h2 class="title" style="text-align:center;">Le soluzioni a confronto</h2>
@@ -525,7 +494,7 @@
     <div class="diamond"><span>◆</span></div>
 
     <div class="cards">
-      <div class="card feature">
+      <div class="card">
         <span class="flag">La più scelta</span>
         <div class="k">Soluzione 1</div>
         <h3>Reportage della festa</h3>
@@ -561,13 +530,11 @@
     <div class="note">Tutte le soluzioni includono la <strong>consegna digitale</strong> degli scatti e <strong>10 stampe omaggio</strong> in formato 15×22 cm.</div>
   </section>
 
-  <!-- CTA GRANDE -->
   <div class="cta-big-wrap">
     <p class="sub">Avete scelto la soluzione giusta per il primo compleanno?<br>Prenotate subito per bloccare la data.</p>
-    <a class="cta-big" href="https://booking-fotografo.vercel.app" target="_blank" rel="noopener">Prenota ora</a>
+    <a class="cta-big" data-cta="finale" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno" target="_blank" rel="noopener">Prenota ora</a>
   </div>
 
-  <!-- 10 · GRAZIE -->
   <section class="thanks">
     <svg class="sprig bl" viewBox="0 0 100 160" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
       <path d="M50 158 C50 120 50 70 50 20"/>
@@ -578,15 +545,127 @@
     </svg>
     <h2>Grazie</h2>
     <p class="msg">Un anno di prime volte, di sguardi nuovi, di momenti che non tornano. <br>Sarò lì per fermarli.</p>
-    <div class="diamond center"><span>◆</span></div>
+    <div class="diamond"><span>◆</span></div>
     <div class="contact">
       <div class="name">Ruggiero Dimiccoli</div>
-      <a href="https://wa.me/393299392486?text=Ciao%20Ruggiero%2C%20ho%20letto%20il%20preventivo%20per%20il%20primo%20compleanno%20e%20vorrei%20qualche%20informazione." target="_blank" rel="noopener">Scrivimi su WhatsApp</a>
+      <a data-cta="whatsapp" href="https://wa.me/393299392486?text=Ciao%20Ruggiero%2C%20ho%20letto%20il%20preventivo%20per%20il%20primo%20compleanno%20e%20vorrei%20qualche%20informazione." target="_blank" rel="noopener">Scrivimi su WhatsApp</a>
       <div>+39 329 939 2486</div>
     </div>
   </section>
 
 </div>
+
+<script>
+(function(){
+  "use strict";
+  var PREVENTIVO = "primo-compleanno";
+  var WA = "393299392486";
+  var NOME_EVENTO = "il primo compleanno";
+  var TRACCIA = { url: "https://itxpyptobqjkbatqeolh.supabase.co", key: "sb_publishable_3ZEoWYD_QcA_SOMm2IbJww_l_HgbmYa", tabella: "preventivi_eventi" };
+
+  var q = new URLSearchParams(location.search);
+  var cliente = (q.get('c') || '').slice(0, 80);
+  var sessione = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()));
+
+  /* ---- 1. personalizzazione ---- */
+  function dataIt(iso){
+    var p = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    if(!p) return null;
+    var dd = new Date(+p[1], +p[2]-1, +p[3]);
+    if(isNaN(dd)) return null;
+    return dd.toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'});
+  }
+  if(cliente){
+    var el = document.getElementById('perCliente');
+    el.querySelector('.nome').textContent = cliente;
+    el.classList.add('attivo');
+  }
+  var pezzi = [];
+  var dataEvento = dataIt(q.get('d'));
+  if(dataEvento) pezzi.push('Evento del ' + dataEvento);
+  var scad = q.get('scad'), scadIt = dataIt(scad);
+  if(scadIt){
+    pezzi.push('Valido fino al ' + scadIt);
+    var oggi = new Date(); oggi.setHours(0,0,0,0);
+    if(new Date(scad) < oggi){
+      var avviso = document.getElementById('avvisoScaduto');
+      avviso.textContent = 'Questo preventivo è scaduto il ' + scadIt + '. Scrivimi per una versione aggiornata.';
+      avviso.classList.add('attivo');
+    }
+  }
+  if(pezzi.length) document.getElementById('validita').innerHTML = pezzi.join(' · ');
+
+  /* ---- 2. configuratore ---- */
+  var cfg = document.getElementById('configuratore');
+  var totaleEl = document.getElementById('cfgTotale');
+  var notaEl = document.getElementById('cfgNota');
+  var inviaEl = document.getElementById('cfgInvia');
+
+  function selezione(){
+    var s = cfg.querySelector('input[name=soluzione]:checked');
+    var e = [].slice.call(cfg.querySelectorAll('input[name=extra]:checked'));
+    return { soluzione: s, extra: e, totale: (s ? +s.dataset.prezzo : 0) + e.reduce(function(t,x){return t + +x.dataset.prezzo;}, 0) };
+  }
+  function aggiorna(){
+    var s = selezione();
+    totaleEl.innerHTML = '€&nbsp;' + s.totale;
+    [].forEach.call(cfg.querySelectorAll('.cfg-voce'), function(l){
+      l.classList.toggle('scelta', l.querySelector('input').checked);
+    });
+    if(!s.soluzione){
+      notaEl.textContent = 'Seleziona una soluzione per iniziare.';
+    } else {
+      notaEl.textContent = s.extra.length
+        ? 'Soluzione ' + s.soluzione.value + ' + ' + s.extra.length + (s.extra.length === 1 ? ' extra' : ' extra')
+        : 'Soluzione ' + s.soluzione.value + ', senza extra';
+    }
+    var righe = ['Ciao Ruggiero, ho composto questa combinazione sul preventivo per ' + NOME_EVENTO + ':'];
+    if(s.soluzione) righe.push('· Soluzione ' + s.soluzione.value + ' — ' + s.soluzione.dataset.nome + ' (€ ' + s.soluzione.dataset.prezzo + ')');
+    s.extra.forEach(function(x){ righe.push('· ' + x.dataset.nome + ' (€ ' + x.dataset.prezzo + ')'); });
+    if(s.totale) righe.push('Totale: € ' + s.totale);
+    if(cliente) righe.push('Sono ' + cliente + '.');
+    inviaEl.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(righe.join('\n'));
+  }
+  cfg.addEventListener('change', aggiorna);
+  aggiorna();
+
+  /* ---- 3. tracciamento ---- */
+  function traccia(evento, dettaglio){
+    if(!TRACCIA.key || TRACCIA.key.indexOf('__') === 0) return;
+    try{
+      fetch(TRACCIA.url + '/rest/v1/' + TRACCIA.tabella, {
+        method: 'POST', keepalive: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': TRACCIA.key,
+          'Authorization': 'Bearer ' + TRACCIA.key,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          preventivo: PREVENTIVO, cliente: cliente || null, evento: evento,
+          dettaglio: dettaglio || null, sessione: sessione,
+          referrer: document.referrer || null, user_agent: navigator.userAgent
+        })
+      }).catch(function(){});
+    }catch(e){}
+  }
+  traccia('apertura');
+
+  var tappe = [25, 50, 75, 100], viste = {};
+  addEventListener('scroll', function(){
+    var h = document.documentElement;
+    var perc = Math.round((h.scrollTop + innerHeight) / h.scrollHeight * 100);
+    tappe.forEach(function(t){ if(perc >= t && !viste[t]){ viste[t] = 1; traccia('scroll', t + '%'); } });
+  }, { passive: true });
+
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest('[data-cta]');
+    if(!a) return;
+    var extra = a.dataset.cta === 'configuratore' ? ' · totale € ' + selezione().totale : '';
+    traccia('cta', a.dataset.cta + extra);
+  });
+})();
+</script>
 
 </body>
 </html>
