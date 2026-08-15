@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Preventivo · Primo Compleanno — Ruggiero Dimiccoli</title>
+<meta name="description" content="Tre soluzioni per il servizio fotografico del primo compleanno, da € 170 a € 240. Consegna digitale e 10 stampe omaggio incluse — Ruggiero Dimiccoli Fotografia.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%239C8568'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='7.5'%20fill='none'%20stroke='%23F7F2EA'%20stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
@@ -12,16 +14,16 @@
 <meta property="og:url" content="https://rdimiccoli.github.io/preventivo-primo-compleanno/">
 <meta property="og:title" content="Preventivo Fotografico · Primo Compleanno">
 <meta property="og:description" content="Tre soluzioni per raccontare il primo compleanno del tuo bambino — Ruggiero Dimiccoli Fotografia">
-<meta property="og:image" content="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:image" content="https://rdimiccoli.github.io/preventivo-primo-compleanno/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1200&q=80">
+<meta name="twitter:image" content="https://rdimiccoli.github.io/preventivo-primo-compleanno/og-cover.jpg">
 
 <style>
   :root{
     --paper:#F7F2EA;
     --paper-2:#EFE7DA;
     --paper-3:#E7DDCC;
-    --ink:#2A2622; 
+    --ink:#2A2622;
     --ink-soft:#6E6253;
     --taupe:#B9A286;
     --taupe-deep:#9C8568;
@@ -84,14 +86,7 @@
   }
   p{margin:0 0 1.05em;}
   p:last-child{margin-bottom:0;}
-  .lead{color:var(--ink);}
   .muted{color:var(--ink-soft);}
-
-  .rule{
-    width:54px;height:1px;background:var(--taupe);
-    border:0;margin:22px 0;
-  }
-  .rule.center{margin-left:auto;margin-right:auto;}
 
   /* tiny ornament */
   .diamond{
@@ -131,10 +126,6 @@
     width:100%;display:block;border-radius:4px;
     box-shadow:0 14px 34px rgba(60,48,34,.22);
   }
-  .cap{
-    font-style:italic;color:var(--ink-soft);
-    font-size:.95rem;text-align:center;margin-top:12px;
-  }
 
   /* ---------- COVER ---------- */
   .cover{
@@ -165,19 +156,22 @@
     font-size:.82rem;letter-spacing:.26em;text-transform:uppercase;
     color:var(--ink-soft);
   }
-  .cover .prepared .fill{
-    border-bottom:1px solid var(--taupe);padding:0 26px;margin:0 4px;
+  /* ---------- CTA ---------- */
+  .cta-small{
+    display:inline-block;margin-top:32px;padding:11px 28px;
+    border:1px solid var(--taupe);color:var(--taupe-deep);text-decoration:none;
+    letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;
+    font-family:var(--serif);transition:background .2s,color .2s;
   }
-
-  /* ---------- running header on inner pages ---------- */
-  .rhead{
-    display:flex;justify-content:space-between;align-items:flex-start;
-    padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:38px;gap:16px;
+  .cta-small:hover{background:var(--taupe);color:var(--paper);}
+  .cta-big-wrap{padding:56px 40px;text-align:center;border-top:1px solid var(--line);background:var(--taupe-deep);}
+  .cta-big-wrap .sub{font-size:1.05rem;color:#F6EFE4;margin-bottom:26px;max-width:38ch;margin-left:auto;margin-right:auto;}
+  .cta-big{
+    display:inline-block;padding:18px 48px;background:var(--paper);color:var(--taupe-deep);
+    text-decoration:none;letter-spacing:.28em;text-transform:uppercase;font-size:1rem;
+    font-family:var(--serif);font-weight:600;transition:filter .2s;
   }
-  .rhead .name{font-size:1.05rem;letter-spacing:.26em;text-transform:uppercase;font-weight:500;}
-  .rhead .name small{display:block;font-size:.62rem;letter-spacing:.28em;color:var(--taupe-deep);margin-top:6px;}
-  .rhead .meta{text-align:right;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);line-height:1.9;}
-  .rhead .meta strong{display:block;color:var(--ink);font-weight:500;letter-spacing:.3em;}
+  .cta-big:hover{filter:brightness(.94);}
 
   /* ---------- COMPARISON ---------- */
   .compare{text-align:center;}
@@ -268,7 +262,7 @@
   .extra .row .amt{font-family:var(--price);font-size:clamp(2.1rem,9vw,2.6rem);line-height:1;white-space:nowrap;flex:none;}
 
   /* ---------- THANKS ---------- */
-  .thanks{text-align:center;padding:70px 40px 80px;}
+  .thanks{position:relative;text-align:center;padding:70px 40px 80px;}
   .thanks h2{font-size:clamp(2.6rem,12vw,3.4rem);font-weight:300;margin-bottom:18px;}
   .thanks .msg{max-width:34ch;margin:0 auto;color:var(--ink-soft);font-size:1.08rem;}
   .thanks .contact{margin-top:38px;}
@@ -283,16 +277,6 @@
   .sprig.tr{top:24px;right:22px;}
   .sprig.bl{bottom:24px;left:22px;transform:scaleX(-1) rotate(8deg);}
 
-  /* print / save-as-pdf button (hidden when printing) */
-  .toolbar{
-    position:fixed;right:18px;bottom:18px;z-index:50;
-  }
-  .toolbar button{
-    font-family:var(--serif);font-size:1rem;letter-spacing:.04em;
-    background:var(--ink);color:var(--paper);border:0;border-radius:40px;
-    padding:14px 22px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.25);
-  }
-  .toolbar button:hover{background:#3b362f;}
 
   @media (min-width:560px){
     .cards{grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:stretch;}
@@ -305,8 +289,7 @@
     @page{size:A4;margin:0;}
     body{background:#fff;}
     .doc{max-width:none;box-shadow:none;}
-    .toolbar{display:none;}
-    .page,.cover,.interlude,.thanks{
+    .page,.cover,.interlude,.thanks,.cta-big-wrap{
       page-break-after:always;break-after:page;
     }
     .thanks{page-break-after:auto;}
@@ -333,12 +316,12 @@
     </div>
     <figure>
       <!-- ① COPERTINA — verticale (orientamento ritratto consigliato, es. 1200×1500px) -->
-      <img class="photo" alt="Copertina primo compleanno" loading="eager"
+      <img class="photo" loading="eager" fetchpriority="high" decoding="async" alt="Copertina primo compleanno"
         src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1200&q=80">
     </figure>
     <p class="eyebrow">Preventivo · Servizio fotografico</p>
     <h1>Primo<br>Compleanno</h1>
-    <p class="prepared" style="margin-top:14px;">Valido <strong>30 giorni</strong> · 2026</p>
+    <p class="prepared" style="margin-top:14px;">Valido <strong>30 giorni</strong> dalla data di invio · 2026</p>
   </section>
 
   
@@ -353,7 +336,7 @@
     </div>
     <figure>
       <!-- ② SOLUZIONE 1 — orizzontale (es. 1200×800px) — atmosfera festa, bokeh, senza volti -->
-      <img class="photo" alt="Atmosfera della festa, bokeh e luce calda"
+      <img class="photo" loading="lazy" decoding="async" alt="Atmosfera della festa, bokeh e luce calda"
         src="https://pub-822ee98e2b2545f886fdcc8a4083cde6.r2.dev/primo-compleanno/(198).jpg">
       
     </figure>
@@ -366,12 +349,15 @@
       <div class="lab">Al prezzo di<small>Consegna digitale + 10 stampe omaggio incluse</small></div>
       <div class="big">€&nbsp;240</div>
     </div>
+    <div style="text-align:center;">
+      <a class="cta-small" href="https://booking-fotografo.vercel.app" target="_blank" rel="noopener">Prenota</a>
+    </div>
   </section>
 
   <!-- DIVIDER 1 -->
   <section class="interlude">
     <!-- ③ DIVISORE 1 — panoramica/orizzontale (es. 1500×900px) — scena festa o dettaglio emozionale -->
-    <img alt="Candele e luce calda"
+    <img loading="lazy" decoding="async" alt="Candele e luce calda"
       src="https://images.unsplash.com/photo-1610670444950-0b29430891b4?auto=format&fit=crop&w=1500&q=80">
     <div class="veil">
       <div class="q">«Un anno intero, raccontato in poche immagini che resteranno per sempre.»</div>
@@ -390,7 +376,7 @@
     </div>
     <figure>
       <!-- ④ SOLUZIONE 2 — orizzontale (es. 1200×800px) — sessione a casa, luce dalla finestra, senza volti -->
-      <img class="photo" alt="Ritratto a casa, luce naturale dalla finestra"
+      <img class="photo" loading="lazy" decoding="async" alt="Ritratto a casa, luce naturale dalla finestra"
         src="https://pub-822ee98e2b2545f886fdcc8a4083cde6.r2.dev/primo-compleanno/pexels-nikitaxnikitin-14774935.jpg">
       
      
@@ -405,16 +391,19 @@
       <div class="lab">Al prezzo di<small>Consegna digitale + 10 stampe omaggio incluse</small></div>
       <div class="big">€&nbsp;210</div>
     </div>
+    <div style="text-align:center;">
+      <a class="cta-small" href="https://booking-fotografo.vercel.app" target="_blank" rel="noopener">Prenota</a>
+    </div>
   </section>
 
   <!-- DIVIDER 2 -->
   <section class="interlude">
     <!-- ⑤ DIVISORE 2 — panoramica/orizzontale (es. 1500×900px) — bokeh, luci della festa, senza volti -->
-    <img alt="Bokeh dorato, atmosfera della festa"
+    <img loading="lazy" decoding="async" alt="Bokeh dorato, atmosfera della festa"
       src="https://images.unsplash.com/photo-1519750783826-e2420f4d687f?auto=format&fit=crop&w=1500&q=80">
     <div class="veil">
       <div class="q">«La luce, i dettagli, gli sguardi: la festa nella sua atmosfera più vera.»</div>
-   
+      <div class="sig">Primo compleanno · Reportage</div>
     </div>
   </section>
 
@@ -429,7 +418,7 @@
     </div>
     <figure>
       <!-- ⑥ SOLUZIONE 3 — orizzontale (es. 1200×800px) — torta con candelina, dettaglio, senza volti -->
-      <img class="photo" alt="Primo piano della torta con candelina"
+      <img class="photo" loading="lazy" decoding="async" alt="Primo piano della torta con candelina"
         src="https://images.unsplash.com/photo-1577998474517-7eeeed4e448a?auto=format&fit=crop&w=1200&q=80">
    
     </figure>
@@ -441,6 +430,9 @@
     <div class="priceline">
       <div class="lab">Al prezzo di<small>Consegna digitale + 10 stampe omaggio incluse</small></div>
       <div class="big">€&nbsp;170</div>
+    </div>
+    <div style="text-align:center;">
+      <a class="cta-small" href="https://booking-fotografo.vercel.app" target="_blank" rel="noopener">Prenota</a>
     </div>
   </section>
 
@@ -475,7 +467,7 @@
 
     <figure style="margin-top:34px;">
       <!-- ⑦ INFORMAZIONI — panoramica larga (es. 1200×525px) — still life, stampe, dettagli materici -->
-      <img class="photo" alt="Still life fine-art"
+      <img class="photo" loading="lazy" decoding="async" alt="Still life fine-art"
         src="https://images.unsplash.com/photo-1651913311362-df86277ac4dc?auto=format&fit=crop&w=1200&q=80"
         style="aspect-ratio:16/7;object-fit:cover;">
     
@@ -521,8 +513,59 @@
       <li><strong>Formato 15×22 cm</strong> — € 2,00 cad. (consegna differita) · € 3,00 cad. in sala <em style="font-size:.85rem;">(+€ 50 supplemento stampa istantanea)</em></li>
       <li><strong>Formato 10×15 cm</strong> — € 1,50 cad. (consegna differita) · € 2,00 cad. in sala <em style="font-size:.85rem;">(+€ 40 supplemento stampa istantanea)</em></li>
     </ul>
-  </div>
+      </div>
+    </div>
   </section>
+
+  <!-- CONFRONTO -->
+  <section class="compare page">
+    <p class="eyebrow" style="text-align:center;">Tre soluzioni</p>
+    <h2 class="title" style="text-align:center;">Le soluzioni a confronto</h2>
+    <p class="intro">Tre formule pensate per raccontare la giornata con il ritmo giusto per voi. Un confronto sintetico delle soluzioni dettagliate nelle pagine precedenti.</p>
+    <div class="diamond"><span>◆</span></div>
+
+    <div class="cards">
+      <div class="card feature">
+        <span class="flag">La più scelta</span>
+        <div class="k">Soluzione 1</div>
+        <h3>Reportage della festa</h3>
+        <div class="amount">€&nbsp;240</div>
+        <ul>
+          <li>Intera festa documentata</li>
+          <li>Scatti prima degli invitati</li>
+          <li>Accoglienza, torta e balli</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="k">Soluzione 2</div>
+        <h3>Sessione a casa</h3>
+        <div class="amount">€&nbsp;210</div>
+        <ul>
+          <li>Scatti a casa con la famiglia</li>
+          <li>Sessione prima degli invitati</li>
+          <li>Incluso momento torta</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="k">Soluzione 3</div>
+        <h3>Solo momento torta</h3>
+        <div class="amount">€&nbsp;170</div>
+        <ul>
+          <li>Sessione prima degli invitati</li>
+          <li>Soli scatti della torta</li>
+          <li>Torta a inizio festa</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">Tutte le soluzioni includono la <strong>consegna digitale</strong> degli scatti e <strong>10 stampe omaggio</strong> in formato 15×22 cm.</div>
+  </section>
+
+  <!-- CTA GRANDE -->
+  <div class="cta-big-wrap">
+    <p class="sub">Avete scelto la soluzione giusta per il primo compleanno?<br>Prenotate subito per bloccare la data.</p>
+    <a class="cta-big" href="https://booking-fotografo.vercel.app" target="_blank" rel="noopener">Prenota ora</a>
+  </div>
 
   <!-- 10 · GRAZIE -->
   <section class="thanks">
@@ -538,8 +581,8 @@
     <div class="diamond center"><span>◆</span></div>
     <div class="contact">
       <div class="name">Ruggiero Dimiccoli</div>
-      <a href="https://wa.me/393299392486" target="_blank">Scrivimi su <u>WhatsApp</u></a>
-  
+      <a href="https://wa.me/393299392486?text=Ciao%20Ruggiero%2C%20ho%20letto%20il%20preventivo%20per%20il%20primo%20compleanno%20e%20vorrei%20qualche%20informazione." target="_blank" rel="noopener">Scrivimi su WhatsApp</a>
+      <div>+39 329 939 2486</div>
     </div>
   </section>
 
