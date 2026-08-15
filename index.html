@@ -191,6 +191,22 @@
   .cfg-nota{font-size:.92rem;color:var(--inchiostro-tenue);margin-top:10px;text-align:right;}
   .cfg-azioni{text-align:center;}
 
+  /* domande frequenti */
+  .dom{border-bottom:1px solid var(--linea);padding:4px 0;}
+  .dom:first-of-type{border-top:1px solid var(--linea);}
+  .dom summary{
+    cursor:pointer;list-style:none;padding:18px 34px 18px 0;position:relative;
+    font-size:1.12rem;line-height:1.4;
+  }
+  .dom summary::-webkit-details-marker{display:none;}
+  .dom summary::after{
+    content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);
+    font-size:1.5rem;line-height:1;color:var(--accento);transition:transform .2s;
+  }
+  .dom[open] summary::after{content:"−";}
+  .dom summary:hover{color:var(--accento-forte);}
+  .dom p{padding:0 0 20px;color:var(--inchiostro-tenue);font-size:1.02rem;margin:0;}
+
   /* confronto */
   .compare{text-align:center;}
   .compare .intro{max-width:46ch;margin:0 auto;color:var(--inchiostro-tenue);}
@@ -289,7 +305,7 @@
       <div class="big">€&nbsp;240</div>
     </div>
     <div style="text-align:center;">
-      <a class="cta-small" data-cta="soluzione-1" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno" target="_blank" rel="noopener">Prenota</a>
+      <a class="cta-small" data-cta="soluzione-1" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno&soluzione=pc-1" target="_blank" rel="noopener">Prenota</a>
     </div>
   </section>
 
@@ -323,7 +339,7 @@
       <div class="big">€&nbsp;210</div>
     </div>
     <div style="text-align:center;">
-      <a class="cta-small" data-cta="soluzione-2" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno" target="_blank" rel="noopener">Prenota</a>
+      <a class="cta-small" data-cta="soluzione-2" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno&soluzione=pc-2" target="_blank" rel="noopener">Prenota</a>
     </div>
   </section>
 
@@ -356,7 +372,7 @@
       <div class="big">€&nbsp;170</div>
     </div>
     <div style="text-align:center;">
-      <a class="cta-small" data-cta="soluzione-3" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno" target="_blank" rel="noopener">Prenota</a>
+      <a class="cta-small" data-cta="soluzione-3" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno&soluzione=pc-3" target="_blank" rel="noopener">Prenota</a>
     </div>
   </section>
 
@@ -485,6 +501,37 @@
     <div class="cfg-azioni">
       <a class="cta-small" id="cfgInvia" data-cta="configuratore" href="#" target="_blank" rel="noopener">Richiedi questa combinazione</a>
     </div>
+  </section>
+
+  <section class="faq page">
+    <p class="eyebrow" style="text-align:center;">Prima di decidere</p>
+    <h2 class="title" style="text-align:center;">Domande frequenti</h2>
+    <div class="diamond"><span>◆</span></div>
+
+    <details class="dom">
+      <summary>Quando ricevo le fotografie?</summary>
+      <p>Le consegno <strong>entro 15 giorni</strong> dall'evento, tramite un link dedicato da cui puoi vederle, condividerle e scaricarle tutte.</p>
+    </details>
+    <details class="dom">
+      <summary>Per quanto tempo posso scaricarle?</summary>
+      <p>Il link resta attivo <strong>30 giorni</strong> dalla consegna. Ti conviene scaricare tutto e farne una copia entro quel periodo.</p>
+    </details>
+    <details class="dom">
+      <summary>Quante fotografie sono comprese?</summary>
+      <p>Non c'è un numero prefissato: consegno <strong>tutte le immagini</strong> che superano la selezione e la post-produzione, senza limiti di quantità.</p>
+    </details>
+    <details class="dom">
+      <summary>Devo per forza prendere le stampe omaggio?</summary>
+      <p>No. Sono <strong>un regalo, non un obbligo</strong>: se non le desideri il prezzo del servizio resta esattamente lo stesso.</p>
+    </details>
+    <details class="dom">
+      <summary>Lavori anche fuori dalla provincia BAT?</summary>
+      <p>Sì. Nella <strong>provincia BAT</strong> non ci sono costi aggiuntivi; per le altre province è previsto un contributo spese di trasferta.</p>
+    </details>
+    <details class="dom">
+      <summary>Posso aggiungere o togliere qualcosa?</summary>
+      <p>Certo. Le soluzioni sono un punto di partenza: scrivimi e costruiamo insieme la formula giusta per la tua giornata.</p>
+    </details>
   </section>
 
   <section class="compare page">
