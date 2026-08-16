@@ -457,17 +457,17 @@
     <div class="cfg-gruppo">
       <h3>La soluzione</h3>
       <label class="cfg-voce">
-        <input type="radio" name="soluzione" value="1" data-prezzo="240" data-nome="Servizio fotografico dell’intera festa">
+        <input type="radio" name="soluzione" value="1" data-prezzo="240" data-nome="Servizio fotografico dell’intera festa" data-id="pc-1" data-evento="Primo Compleanno">
         <span class="et">Soluzione 1<small>Reportage completo</small></span>
         <span class="pz">€&nbsp;240</span>
       </label>
       <label class="cfg-voce">
-        <input type="radio" name="soluzione" value="2" data-prezzo="210" data-nome="Servizio fotografico a casa prima della festa">
+        <input type="radio" name="soluzione" value="2" data-prezzo="210" data-nome="Servizio fotografico a casa prima della festa" data-id="pc-2" data-evento="Primo Compleanno">
         <span class="et">Soluzione 2<small>Sessione a casa</small></span>
         <span class="pz">€&nbsp;210</span>
       </label>
       <label class="cfg-voce">
-        <input type="radio" name="soluzione" value="3" data-prezzo="170" data-nome="Servizio fotografico del solo momento torta">
+        <input type="radio" name="soluzione" value="3" data-prezzo="170" data-nome="Servizio fotografico del solo momento torta" data-id="pc-3" data-evento="Primo Compleanno">
         <span class="et">Soluzione 3<small>Solo momento torta</small></span>
         <span class="pz">€&nbsp;170</span>
       </label>
@@ -476,17 +476,17 @@
     <div class="cfg-gruppo">
       <h3>Gli extra</h3>
       <label class="cfg-voce">
-        <input type="checkbox" name="extra" value="0" data-prezzo="180" data-nome="Fotolibro aggiuntivo">
+        <input type="checkbox" name="extra" value="0" data-prezzo="180" data-nome="Fotolibro aggiuntivo" data-id="pc-book">
         <span class="et">Fotolibro aggiuntivo</span>
         <span class="pz">+ €&nbsp;180</span>
       </label>
       <label class="cfg-voce">
-        <input type="checkbox" name="extra" value="1" data-prezzo="160" data-nome="Polaroid aggiuntive">
+        <input type="checkbox" name="extra" value="1" data-prezzo="160" data-nome="Polaroid aggiuntive" data-id="pc-pol-100">
         <span class="et">Polaroid aggiuntive</span>
         <span class="pz">+ €&nbsp;160</span>
       </label>
       <label class="cfg-voce">
-        <input type="checkbox" name="extra" value="2" data-prezzo="80" data-nome="Polaroid del solo momento torta">
+        <input type="checkbox" name="extra" value="2" data-prezzo="80" data-nome="Polaroid del solo momento torta" data-id="pc-pol-20">
         <span class="et">Polaroid del solo momento torta</span>
         <span class="pz">+ €&nbsp;80</span>
       </label>
@@ -499,7 +499,7 @@
     <p class="cfg-nota" id="cfgNota">Seleziona una soluzione per iniziare.</p>
 
     <div class="cfg-azioni">
-      <a class="cta-small" id="cfgInvia" data-cta="configuratore" href="#" target="_blank" rel="noopener">Richiedi questa combinazione</a>
+      <a class="cta-small" id="cfgInvia" data-cta="configuratore" href="https://booking-fotografo.vercel.app/?evento=Primo+Compleanno&origine=preventivo&preventivo=primo-compleanno" target="_blank" rel="noopener">Prenota questa combinazione</a>
     </div>
   </section>
 
@@ -606,8 +606,8 @@
 (function(){
   "use strict";
   var PREVENTIVO = "primo-compleanno";
-  var WA = "393299392486";
-  var NOME_EVENTO = "il primo compleanno";
+  var BOOKING = "https://booking-fotografo.vercel.app";
+  var EVENTO_PREDEFINITO = "Primo Compleanno";
   var TRACCIA = { url: "https://itxpyptobqjkbatqeolh.supabase.co", key: "sb_publishable_3ZEoWYD_QcA_SOMm2IbJww_l_HgbmYa", tabella: "preventivi_eventi" };
 
   var q = new URLSearchParams(location.search);
@@ -666,12 +666,15 @@
         ? 'Soluzione ' + s.soluzione.value + ' + ' + s.extra.length + (s.extra.length === 1 ? ' extra' : ' extra')
         : 'Soluzione ' + s.soluzione.value + ', senza extra';
     }
-    var righe = ['Ciao Ruggiero, ho composto questa combinazione sul preventivo per ' + NOME_EVENTO + ':'];
-    if(s.soluzione) righe.push('· Soluzione ' + s.soluzione.value + ' — ' + s.soluzione.dataset.nome + ' (€ ' + s.soluzione.dataset.prezzo + ')');
-    s.extra.forEach(function(x){ righe.push('· ' + x.dataset.nome + ' (€ ' + x.dataset.prezzo + ')'); });
-    if(s.totale) righe.push('Totale: € ' + s.totale);
-    if(cliente) righe.push('Sono ' + cliente + '.');
-    inviaEl.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(righe.join('\n'));
+    // Il pulsante apre il form di prenotazione con tutto gia' selezionato,
+    // non WhatsApp: il cliente deve poter chiudere la richiesta li'.
+    var p = new URLSearchParams({ origine: 'configuratore', preventivo: PREVENTIVO });
+    p.set('evento', s.soluzione ? s.soluzione.dataset.evento : EVENTO_PREDEFINITO);
+    if(s.soluzione && s.soluzione.dataset.id) p.set('soluzione', s.soluzione.dataset.id);
+    var idExtra = s.extra.map(function(x){ return x.dataset.id; }).filter(Boolean);
+    if(idExtra.length) p.set('extra', idExtra.join(','));
+    if(cliente) p.set('cliente', cliente);
+    inviaEl.href = BOOKING + '/?' + p.toString();
   }
   cfg.addEventListener('change', aggiorna);
   aggiorna();
