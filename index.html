@@ -189,6 +189,7 @@
   .cfg-totale .et{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accento-forte);}
   .cfg-totale .somma{font-family:var(--prezzo);font-size:clamp(2.6rem,12vw,3.4rem);line-height:1;color:var(--accento-forte);}
   .cfg-nota{font-size:.92rem;color:var(--inchiostro-tenue);margin-top:10px;text-align:right;}
+  .cfg-gruppo .avviso{font-size:.92rem;color:var(--inchiostro-tenue);margin:12px 2px 0;line-height:1.5;}
   .cfg-azioni{text-align:center;}
 
   /* domande frequenti */
@@ -498,15 +499,16 @@
         <span class="pz">+ €&nbsp;180</span>
       </label>
       <label class="cfg-voce">
-        <input type="checkbox" name="extra" value="1" data-prezzo="160" data-nome="Polaroid aggiuntive" data-id="pc-pol-100">
+        <input type="checkbox" name="extra" value="1" data-prezzo="160" data-nome="Polaroid aggiuntive" data-id="pc-pol-100" data-gruppo="polaroid">
         <span class="et">Polaroid aggiuntive</span>
         <span class="pz">+ €&nbsp;160</span>
       </label>
       <label class="cfg-voce">
-        <input type="checkbox" name="extra" value="2" data-prezzo="80" data-nome="Polaroid del solo momento torta" data-id="pc-pol-20">
+        <input type="checkbox" name="extra" value="2" data-prezzo="80" data-nome="Polaroid del solo momento torta" data-id="pc-pol-20" data-gruppo="polaroid">
         <span class="et">Polaroid del solo momento torta</span>
         <span class="pz">+ €&nbsp;80</span>
       </label>
+      <p class="avviso">Le polaroid si scelgono in alternativa: quelle di tutta la festa comprendono già il momento torta.</p>
     </div>
 
     <div class="cfg-totale">
@@ -697,7 +699,17 @@
     if(cliente) p.set('cliente', cliente);
     inviaEl.href = BOOKING + '/?' + p.toString();
   }
-  cfg.addEventListener('change', aggiorna);
+  cfg.addEventListener('change', function(ev){
+    var t = ev.target;
+    // Scegliere entrambe le polaroid significherebbe pagare due volte il
+    // momento torta: la prima spuntata toglie le altre del suo gruppo.
+    if(t && t.name === 'extra' && t.checked && t.dataset.gruppo){
+      [].forEach.call(cfg.querySelectorAll('input[name=extra][data-gruppo="' + t.dataset.gruppo + '"]'), function(x){
+        if(x !== t) x.checked = false;
+      });
+    }
+    aggiorna();
+  });
   aggiorna();
 
   /* ---- 3. tracciamento ---- */
